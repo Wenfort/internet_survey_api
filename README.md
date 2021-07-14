@@ -1,5 +1,5 @@
 # Как развернуть проект
-+ git pull https://github.com/Wenfort/internet_survey_api.git
++ git clone https://github.com/Wenfort/internet_survey_api.git
 + cd internet_survey_api
 + Создать виртуальное окружение
 + pip install -r requirements.txt
