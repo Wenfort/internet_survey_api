@@ -1,3 +1,14 @@
+# Как развернуть проект
++ git pull https://github.com/Wenfort/internet_survey_api.git
++ cd internet_survey_api
++ Создать виртуальное окружение
++ pip install -r requirements.txt
++ python manage.py makemigrations
++ python manage.py migrate
++ python manage.py createsuperuser
++ python manage.py runserver
+
+# Документация API
 ## Получение Token
 #### Метод: GET
 #### URL: http://127.0.0.1:8000/api/log/
