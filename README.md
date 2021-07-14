@@ -52,9 +52,9 @@
 #### URL: http://127.0.0.1:8000/api/question/
 #### Пример JSON запроса:
 > {  
->    "text": "Текст вопроса",  
->    "type": 1,  
->    "survey": 5  
+> &nbsp;&nbsp;&nbsp;&nbsp;"text": "Текст вопроса",  
+> &nbsp;&nbsp;&nbsp;&nbsp;"type": 1,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"survey": 5  
 }  
     
 Примечание:
@@ -66,9 +66,9 @@
 #### URL: http://127.0.0.1:8000/api/question/<id>/
 #### Пример JSON запроса:
 > {  
->    "text": "Новый текст вопроса",  
->    "type": 2,  
->    "survey": 6  
+> &nbsp;&nbsp;&nbsp;&nbsp;"text": "Новый текст вопроса",  
+> &nbsp;&nbsp;&nbsp;&nbsp;"type": 2,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"survey": 6  
 }  
     
 Примечание:
@@ -84,8 +84,8 @@
 #### URL: http://127.0.0.1:8000/api/choice/
 #### Пример JSON запроса:
 > {  
->    "text": "Текст ответа",  
->    "question": 5  
+> &nbsp;&nbsp;&nbsp;&nbsp;"text": "Текст ответа",  
+> &nbsp;&nbsp;&nbsp;&nbsp;"question": 5  
 }  
     
 Примечание:
@@ -96,8 +96,8 @@
 #### URL: http://127.0.0.1:8000/api/choice/<id>/
 #### Пример JSON запроса:
 > {  
->    "text": "Новый текст ответа",  
->     "question": 6  
+> &nbsp;&nbsp;&nbsp;&nbsp;"text": "Новый текст ответа",  
+> &nbsp;&nbsp;&nbsp;&nbsp;"question": 6  
 > }  
     
 Примечание:
@@ -120,10 +120,10 @@
 #### URL: http://127.0.0.1:8000/api/user_makes_choice/<id>/
 #### Пример JSON запроса:
 > {  
->    "survey": 5,  
->    "question": 4,  
->    "choice": 1,  
->    "respondent": 1  
+> &nbsp;&nbsp;&nbsp;&nbsp;"survey": 5,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"question": 4,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"choice": 1,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"respondent": 1  
 > }  
     
 Примечание:
@@ -137,10 +137,10 @@
 #### URL: http://127.0.0.1:8000/api/user_makes_choice/<id>/
 #### Пример JSON запроса:
 > {  
->    "survey": 5,  
->    "question": 4,  
->    "choice": 2,  
->    "respondent": 1  
+> &nbsp;&nbsp;&nbsp;&nbsp;"survey": 5,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"question": 4,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"choice": 2,  
+> &nbsp;&nbsp;&nbsp;&nbsp;"respondent": 1  
 > }  
     
 Примечание:
