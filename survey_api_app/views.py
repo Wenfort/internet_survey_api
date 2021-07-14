@@ -57,4 +57,3 @@ class RespondentChoiceViewSet(ModelViewSet):
 class UserMakesChoiceViewSet(ModelViewSet):
     queryset = RespondentAnswer.objects.all()
     serializer_class = UserMakesChoiceSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]

@@ -40,7 +40,7 @@ class Choice(models.Model):
 
 
 class RespondentAnswer(models.Model):
-    respondent = models.ForeignKey(Respondent, related_name='respondent', on_delete=models.CASCADE)
+    respondent = models.ForeignKey(Respondent, related_name='respondent', on_delete=models.CASCADE, blank=True, null=True)
     survey = models.ForeignKey(Survey, related_name='survey', on_delete=models.CASCADE)
     question = models.ForeignKey(Question, related_name='question', on_delete=models.CASCADE)
     choice = models.ForeignKey(Choice, related_name='choice', on_delete=models.CASCADE)
