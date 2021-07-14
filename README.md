@@ -1,3 +1,14 @@
+# Как развернуть проект
++ git clone https://github.com/Wenfort/internet_survey_api.git
++ cd internet_survey_api
++ Создать виртуальное окружение
++ pip install -r requirements.txt
++ python manage.py makemigrations
++ python manage.py migrate
++ python manage.py createsuperuser
++ python manage.py runserver
+
+# Документация API
 ## Получение Token
 #### Метод: GET
 #### URL: http://127.0.0.1:8000/api/log/
@@ -20,7 +31,7 @@
 
 ## Изменение опроса
 #### Метод: PUT
-#### URL: http://127.0.0.1:8000/api/survey/<id>/
+#### URL: http://127.0.0.1:8000/api/survey/[id опроса]/
 #### Пример JSON запроса:
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"name": "Новое имя опроса",  
@@ -33,7 +44,7 @@
 
 ## Удалить опрос  
 #### Метод: DELETE  
-#### URL: http://127.0.0.1:8000/api/survey/<id>/  
+#### URL: http://127.0.0.1:8000/api/survey/[id опроса]/  
 
 ## Получение всех опросов  
 #### Метод: GET  
@@ -63,7 +74,7 @@
 
 ## Изменить вопрос
 #### Метод: PUT
-#### URL: http://127.0.0.1:8000/api/question/<id>/
+#### URL: http://127.0.0.1:8000/api/question/[id вопроса]/
 #### Пример JSON запроса:
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"text": "Новый текст вопроса",  
@@ -77,7 +88,7 @@
 
 ## Удалить вопрос
 #### Метод: DELETE
-#### URL: http://127.0.0.1:8000/api/question/<id>/
+#### URL: http://127.0.0.1:8000/api/question/[id вопроса]/
 
 ## Создать новый вариант ответа
 #### Метод: POST
@@ -93,7 +104,7 @@
 
 ## Изменить вариант ответа
 #### Метод: PUT
-#### URL: http://127.0.0.1:8000/api/choice/<id>/
+#### URL: http://127.0.0.1:8000/api/choice/[id варианта ответа]/
 #### Пример JSON запроса:
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"text": "Новый текст ответа",  
@@ -105,7 +116,7 @@
 
 ## Удалить вариант ответа
 #### Метод: DELETE
-#### URL: http://127.0.0.1:8000/api/choice/<id>/
+#### URL: http://127.0.0.1:8000/api/choice/[id варианта ответа]/
 
 ## Посмотреть все пройденные опросы всех пользователей
 #### Метод: GET
@@ -113,11 +124,11 @@
 
 ## Посмотреть все пройденные опросы конкретного пользователя
 #### Метод: GET
-#### URL: http://127.0.0.1:8000/api/user_choice/<id>/
+#### URL: http://127.0.0.1:8000/api/user_choice/[id пользователя]/
 
 ## Пользователь делает выбор
 #### Метод: POST
-#### URL: http://127.0.0.1:8000/api/user_makes_choice/<id>/
+#### URL: http://127.0.0.1:8000/api/user_makes_choice/
 #### Пример JSON запроса:
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"survey": 5,  
@@ -134,7 +145,7 @@
 
 ## Пользователь меняет выбор
 #### Метод: PUT
-#### URL: http://127.0.0.1:8000/api/user_makes_choice/<id>/
+#### URL: http://127.0.0.1:8000/api/user_makes_choice/[id сделанного пользователем ответа]/
 #### Пример JSON запроса:
 > {  
 > &nbsp;&nbsp;&nbsp;&nbsp;"survey": 5,  
