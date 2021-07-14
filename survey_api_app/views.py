@@ -1,17 +1,12 @@
 import datetime
-from datetime import date
-
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework import status
-from rest_framework.decorators import api_view, permission_classes, action
+from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
-from rest_framework.status import HTTP_200_OK, HTTP_404_NOT_FOUND, HTTP_400_BAD_REQUEST
 from rest_framework.viewsets import ModelViewSet
 
 from .models import Respondent, Survey, Question, Choice, RespondentAnswer
 from .serializer import SurveySerializer, SurveySerializerWithBlockedStartDay, QuestionSerializer, ChoiceSerializer, \
-    RespondentAnswerSerializer
+    RespondentAnswerSerializer, UserMakesChoiceSerializer
 from .admin_logic.authorization import AuthenticationHandler
 
 
@@ -38,7 +33,7 @@ class SurveyViewSet(ModelViewSet):
 
 class ActiveSurveyViewSet(SurveyViewSet):
     date_now = datetime.date.today()
-    queryset = Survey.objects.filter(end_day__gte=date_now, start_day__lte=date_now).select_related()
+    queryset = Survey.objects.filter(end_date__gte=date_now, start_date__lte=date_now).select_related()
 
 
 class QuestionViewSet(ModelViewSet):
@@ -58,6 +53,8 @@ class RespondentChoiceViewSet(ModelViewSet):
     serializer_class = RespondentAnswerSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 
-    @action(methods=['post'], detail=False)
-    def post(self):
-        print('hello')
+
+class UserMakesChoiceViewSet(ModelViewSet):
+    queryset = RespondentAnswer.objects.all()
+    serializer_class = UserMakesChoiceSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]

@@ -25,8 +25,8 @@ class QuestionSerializer(serializers.ModelSerializer):
 class SurveySerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=255)
-    start_day = serializers.DateTimeField()
-    end_day = serializers.DateTimeField()
+    start_date = serializers.DateTimeField()
+    end_date = serializers.DateTimeField()
     description = serializers.CharField(max_length=510)
     question = QuestionSerializer(many=True, read_only=True)
 
@@ -36,25 +36,24 @@ class SurveySerializer(serializers.ModelSerializer):
 
 
 class SurveySerializerWithBlockedStartDay(SurveySerializer):
-    start_day = serializers.DateTimeField(read_only=True)
+    start_date = serializers.DateTimeField(read_only=True)
 
-здесь не конкретный, будем использовать для отправки данных
-class Re(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
+
+class UserMakesChoiceSerializer(serializers.ModelSerializer):
+
     survey = serializers.SlugRelatedField(queryset=Survey.objects.all(), slug_field='id')
     question = serializers.SlugRelatedField(queryset=Question.objects.all(), slug_field='id')
     choice = serializers.SlugRelatedField(queryset=Choice.objects.all(), slug_field='id', allow_null=True)
 
     class Meta:
-        model = Respondent
-        fields = ['__all__']
+        model = RespondentAnswer
+        fields = '__all__'
 
-здесь данные по конкретному
-class RespondentAnswerSerializer(serializers.Serializer):
+
+class RespondentAnswerSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField()
-    respondent = Re(many=True)
+    respondent = UserMakesChoiceSerializer(many=True)
 
     class Meta:
         model = Respondent
-        fields = ['__all__']
-
+        fields = '__all__'
